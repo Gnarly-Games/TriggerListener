@@ -8,7 +8,7 @@
     "url": "https://github.com/Gnarly-Games/GnarlyUtility.git"
   },
   "dependencies": {
-    "https://github.com/dbrizov/NaughtyAttributes.git#upm"
+    "com.dbrizov.naughtyattributes": "https://github.com/dbrizov/NaughtyAttributes.git#upm"
   },
   "keywords": [
     "trigger",
