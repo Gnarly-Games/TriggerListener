@@ -1,0 +1,23 @@
+{
+  "name": "com.gnarlygamesudio.triggerlistener",
+  "displayName": "Trigger Listener",
+  "description": "Listen trigger on a collider",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gnarly-Games/GnarlyUtility.git"
+  },
+  "dependencies": {
+    "com.dbrizov.naughtyattributes": "https://github.com/dbrizov/NaughtyAttributes.git#upm"
+  },
+  "keywords": [
+    "trigger",
+    "collider"
+  ],
+  "author": {
+    "name": "Ferhat TEPE",
+    "email": "ferhattepe@gnarlyteam.com",
+    "url": "https://www.gnarlygamestudio.com/"
+  },
+  "type": "tool"
+}
