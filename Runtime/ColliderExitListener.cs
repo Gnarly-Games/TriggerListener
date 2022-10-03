@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class ColliderExitListener : MonoBehaviour
 {
     [TagSelector]
-    public string target;
+    public string targetTag;
     public UnityEvent<ColliderHit> triggerEvent;
 
     private void Start()
@@ -17,7 +17,7 @@ public class ColliderExitListener : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.collider.CompareTag(target))
+        if (other.collider.CompareTag(targetTag))
         {
             triggerEvent.Invoke(new ColliderHit { collision = other, self = gameObject });
         }

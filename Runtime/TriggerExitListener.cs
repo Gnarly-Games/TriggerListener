@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class TriggerExitListener : MonoBehaviour
 {
     [TagSelector]
-    public string target;
+    public string targetTag;
     public UnityEvent<TriggerHit> triggerEvent;
 
     private void Start()
@@ -17,7 +17,7 @@ public class TriggerExitListener : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag(target))
+        if (other.CompareTag(targetTag))
         {
             triggerEvent.Invoke(new TriggerHit { other = other.gameObject, self = gameObject });
         }
