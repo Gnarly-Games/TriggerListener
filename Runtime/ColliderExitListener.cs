@@ -1,29 +1,25 @@
-using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 
-public namespace Gnarly
+[RequireComponent(typeof(Collider))]
+public class ColliderExitListener : MonoBehaviour
 {
-    [RequireComponent(typeof(Collider))]
-    public class ColliderExitListener : MonoBehaviour
+    [TagSelector]
+    public string target;
+    public UnityEvent<ColliderHit> triggerEvent;
+
+    private void Start()
     {
-        [Tag]
-        public string target;
-        public UnityEvent<GameObject> triggerEvent;
+        var collider = GetComponent<Collider>();
+        if (collider.isTrigger)
+            Debug.LogError($"{gameObject.name} collider must be not a trigger");
+    }
 
-        private void Start()
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.CompareTag(target))
         {
-            var collider = GetComponent<Collider>();
-            if (collider.isTrigger)
-                Debug.LogError($"{gameObject.name} collider must be not a trigger");
-        }
-
-        private void OnCollisionEnter(Collision other)
-        {
-            if (other.collider.CompareTag(target))
-            {
-                triggerEvent.Invoke(other.gameObject);
-            }
+            triggerEvent.Invoke(new ColliderHit { collision = other, self = gameObject });
         }
     }
 }
