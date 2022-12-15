@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Collider))]
-public class ColliderEnterListener : MonoBehaviour
+public class CollisionStayListener : MonoBehaviour
 {
     [TagSelector]
     public string targetTag;
